@@ -12,12 +12,15 @@ import { motion } from "motion/react"
 import CurvedLoop from "@/components/CurvedLoop"
 import ScrollVelocity from "@/components/ScrollVelocity"
 const MCard = motion.create(Card)
+import { useSyncExternalStore } from "react"
+
+// This returns 'false' on the server and 'true' on the client
+const isClient = () => true
+const isServer = () => false
+const subscribe = () => () => {} // No-op
 
 export default function Home() {
-  const [hydrated, setHydrated] = useState(false)
-  useEffect(() => {
-    setHydrated(true)
-  }, [])
+  const hydrated = useSyncExternalStore(subscribe, isClient, isServer)
 
   if (!hydrated) return <Loading />
   return (

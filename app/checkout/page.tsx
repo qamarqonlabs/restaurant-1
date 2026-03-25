@@ -93,7 +93,7 @@ export default function CheckoutPage() {
   }
 
   if (orderPlaced) {
-    const WANumber = "923707475981"
+    const WANumber = process.env.NEXT_PUBLIC_PHONE
     const qrCodeUrl = "https://api.whatsapp.com/send?phone=" + WANumber
     const text =
       deliveryMethod === "delivery"
