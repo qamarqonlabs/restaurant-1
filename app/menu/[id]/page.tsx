@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { motion } from "motion/react"
 import { useRouter, useParams } from "next/navigation"
 import { Header } from "@/components/header"
 import { ProductCard } from "@/components/product-card"
